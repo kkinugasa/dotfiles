@@ -1,0 +1,24 @@
+keymapの変え方
+
+/usr/share/X11/xkb/symbols/
+にmyswapを配置
+
+/usr/share/X11/xkb/rules/evdev
+の
+! option = symbols
+に
+myswap:nokeys = +myswap(nokeys)
+を追記
+
+/etc/default/keyboard
+に
+XKBOPTIONS="myswap:nokeys"
+と記述
+
+setxkbmap -print
+で確認
+
+反映されてないなら
+setxkbmap -option #設定を初期化
+setxkbmap -option myswap:nokeys #設定を反映
+を実行

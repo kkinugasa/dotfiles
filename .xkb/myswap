@@ -1,0 +1,22 @@
+partial modifier_keys
+xkb_symbols "nokeys" {
+    // Change Caps Lock to Ctrl
+    // replace key <CAPS> { [ Control_L, Control_L ] };
+    // modifier_map Control { <CAPS>, <LCTL> };
+
+    // Swap caps and ctrl
+    //replace key <CAPS> { [ Control_L ] };
+    //replace key <LCTL> { [ Caps_Lock ] };
+    //modifier_map Control { <CAPS> };
+    //modifier_map  Lock { <LCTL> };
+
+    key <HKTG> { [ Shift_L ] };
+    key <HENK> { [ Shift_L ] };
+    key <MUHE> { [ Alt_L ] };
+
+    //replace key <HKTG> { [ Shift_L ] };
+    //replace key <HENK> { [ Shift_L ] };
+    //modifier_map Shift { <LFSH>, <HKTG>, <HENK> }
+    //replace key <MUHE> { [ Alt_L, Meta_L ] };
+    //modifier_map Mod1 { <MUHE>, <RALT> };
+};
