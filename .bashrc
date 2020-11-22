@@ -151,7 +151,14 @@ eval "$(pyenv virtualenv-init -)"
 
 source <(kubectl completion bash)
 
-alias gcd='cd $(ghq root)/$(ghq list | peco)'
+peco-cd() {
+    local GIT_SRC=$(ghq list | peco)
+    if [ -n "$GIT_SRC" ]; then
+        cd $(ghq root)/"$GIT_SRC"
+    fi
+}
+
+alias gcd='peco-cd'
 alias ghub='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 #https://qiita.com/omega999/items/8717c1b9d8bc10596d67#peco-history%E3%81%AE%E5%AE%9F%E8%A3%85
