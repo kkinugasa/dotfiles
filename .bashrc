@@ -124,6 +124,14 @@ setxkbmap -option myswap:nokeys #設定を反映
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 
+enable pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+source <(kubectl completion bash)
+
+
 # プロンプトに各種情報を表示
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
@@ -142,14 +150,6 @@ GIT_PS1_SHOWSTASHSTATE=1
 # \$ $
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\n\$ '
 ##############
-
-enable pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-
-source <(kubectl completion bash)
 
 peco-cd() {
     local GIT_SRC=$(ghq list | peco)
