@@ -124,6 +124,14 @@ setxkbmap -option myswap:nokeys #設定を反映
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 
+enable pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+source <(kubectl completion bash)
+
+
 # プロンプトに各種情報を表示
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1

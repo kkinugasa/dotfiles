@@ -26,10 +26,12 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# To avoid this issue https://github.com/GoogleCloudPlatform/github-actions/issues/128
+export CLOUDSDK_PYTHON=/usr/bin/python
+
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$PATH:$HOME/flutter/bin"
 export PATH="$PATH:$HOME/android-studio/bin"
-export PATH="$PATH:$(go env GOPATH)/bin"
-export GOPATH=$(go env GOPATH)
