@@ -35,3 +35,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$PATH:$HOME/flutter/bin"
 export PATH="$PATH:$HOME/android-studio/bin"
+
+# turn off bell in less related commands
+export LESS="-Q"
