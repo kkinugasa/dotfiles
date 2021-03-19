@@ -38,4 +38,5 @@ export PATH="$PATH:$HOME/android-studio/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # turn off bell in less related commands
-export LESS="-Q"
+# https://qiita.com/takuyanin/items/549c6f9cbdc85ac3ccd0
+export LESS="-QiRMXS"
