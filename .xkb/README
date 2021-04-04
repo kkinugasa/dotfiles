@@ -10,10 +10,10 @@ keymapの変え方
 myswap:nokeys = +myswap(nokeys)
 を追記
 
-/etc/default/keyboard
-に
-XKBOPTIONS="myswap:nokeys"
-と記述
+# /etc/default/keyboard
+# に
+# XKBOPTIONS="myswap:nokeys"
+# と記述
 
 setxkbmap -print
 で確認
