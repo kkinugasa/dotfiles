@@ -30,7 +30,9 @@ fi
 export CLOUDSDK_PYTHON=/usr/bin/python
 
 export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$(go env GOPATH)/bin"
+if [ "$(which go)" ]; then
+    export PATH="$PATH:$(go env GOPATH)/bin"
+fi
 export PATH="$HOME/.poetry/bin:$PATH"
 
 export PATH="$PATH:$HOME/flutter/bin"
