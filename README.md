@@ -8,6 +8,7 @@ Ubuntu PC の初期設定
 - fira code
 - google chrome
 - docker
+- hadolint, dockle, trivy
 - nvidia docker など gpu 関係
 - kind
 - skaffold
