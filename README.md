@@ -19,6 +19,7 @@ Ubuntu PC の初期設定
 - poetry
 - flutter, android-studio
 - [nodejs](https://qiita.com/seibe/items/36cef7df85fe2cefa3ea)
+- [texlive](https://texwiki.texjp.org/?Linux)
 
 ## setting
 
