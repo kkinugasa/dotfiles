@@ -27,7 +27,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # To avoid this issue https://github.com/GoogleCloudPlatform/github-actions/issues/128
-export CLOUDSDK_PYTHON=/usr/bin/python
+export CLOUDSDK_PYTHON=/usr/bin/python3
 
 export PATH="$PATH:/usr/local/go/bin"
 if [ "$(which go)" ]; then
