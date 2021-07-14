@@ -10,16 +10,20 @@ Ubuntu PC の初期設定
 - docker
 - hadolint, dockle, trivy
 - nvidia docker など gpu 関係
-- kind
+- kubectl
+- [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
+- [krew](https://krew.sigs.k8s.io/docs/user-guide/setup/install/)
 - skaffold
 - gcloud
 - git-completion, git-prompt
 - golang
 - pyenv
 - poetry
-- flutter, android-studio
+- [flutter](https://flutter.dev/docs/get-started/install/linux), android-studio
 - [nodejs](https://qiita.com/seibe/items/36cef7df85fe2cefa3ea)
 - [texlive](https://texwiki.texjp.org/?Linux)
+- [haskell](https://www.haskell.org/platform/linux.html#linux-ubuntu)
+- [lean](https://leanprover.github.io/lean4/doc/quickstart.html)
 
 ## setting
 
@@ -31,6 +35,12 @@ go get github.com/x-motemen/ghq
 sudo apt install hub peco
 git config --global --add ghq.root $(go env GOPATH)/src
 ```
+
+### Flutter関係
+
+Android studioインストール後，`flutter doctor --android-licenses`でjavaのexceptionが発生した場合  
+<https://zenn.dev/captain_blue/articles/flutter-android-licenses-classnotfound>
+
 
 ### GNOME 関係
 

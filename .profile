@@ -35,10 +35,11 @@ if [ "$(which go)" ]; then
 fi
 export PATH="$HOME/.poetry/bin:$PATH"
 
-export PATH="$PATH:$HOME/flutter/bin"
-export PATH="$PATH:$HOME/android-studio/bin"
+export PATH="$PATH:/usr/local/android-studio/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # turn off bell in less related commands
 # https://qiita.com/takuyanin/items/549c6f9cbdc85ac3ccd0
 export LESS="-QiRMXS"
+
+export PATH="$HOME/.elan/bin:$PATH"
