@@ -5,7 +5,8 @@ Ubuntu PC の初期設定
 ## install list
 
 - vscode
-- fira code
+<!-- - fira code -->
+- [ricty diminished](./fonts/README.md)
 - google chrome
 - docker
 - hadolint, dockle, trivy

@@ -43,3 +43,11 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export LESS="-QiRMXS"
 
 export PATH="$HOME/.elan/bin:$PATH"
+
+# Integrated haskell platform
+# https://ihp.digitallyinduced.com/Guide/index.html
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export IHP_EDITOR="code --goto"
+
+export QSYS_ROOTDIR="$HOME/intelFPGA_lite/21.1/quartus/sopc_builder/bin"
+. "$HOME/.cargo/env"

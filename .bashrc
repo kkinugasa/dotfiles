@@ -145,7 +145,7 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 
 # enable pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 
@@ -236,3 +236,7 @@ cdnvm() {
 alias cd='cdnvm'
 cd $PWD
 export PATH=./node_modules/.bin:$PATH
+eval "$(direnv hook bash)"
+
+export QSYS_ROOTDIR="$HOME/intelFPGA_lite/21.1/quartus/sopc_builder/bin"
+. "$HOME/.cargo/env"
