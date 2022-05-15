@@ -241,6 +241,4 @@ eval "$(direnv hook bash)"
 export QSYS_ROOTDIR="$HOME/intelFPGA_lite/21.1/quartus/sopc_builder/bin"
 . "$HOME/.cargo/env"
 
-terraform -install-autocomplete
-
 complete -C /usr/bin/terraform terraform
