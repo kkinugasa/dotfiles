@@ -22,7 +22,7 @@ Ubuntu PC の初期設定
 - pyenv
 - poetry
 - [flutter](https://flutter.dev/docs/get-started/install/linux), android-studio
-- [nodejs](https://github.com/nvm-sh/nvm)
+- [nodejs](https://volta.sh/)
 - [texlive](https://texwiki.texjp.org/?Linux)
 - [haskell](https://www.haskell.org/platform/linux.html#linux-ubuntu)
 - [lean](https://leanprover.github.io/lean4/doc/quickstart.html)

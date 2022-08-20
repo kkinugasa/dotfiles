@@ -55,3 +55,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # opam configuration
 test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+# https://volta.sh/
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
