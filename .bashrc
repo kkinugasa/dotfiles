@@ -150,7 +150,6 @@ eval "$(pyenv virtualenv-init -)"
 
 
 source <(kubectl completion bash)
-source <(poetry completions bash)
 
 peco-cd() {
     local GIT_SRC=$(ghq list | peco)

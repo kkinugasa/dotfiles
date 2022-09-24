@@ -51,7 +51,6 @@ export IHP_EDITOR="code --goto"
 export QSYS_ROOTDIR="$HOME/intelFPGA_lite/21.1/quartus/sopc_builder/bin"
 . "$HOME/.cargo/env"
 
-export PATH="$HOME/.poetry/bin:$PATH"
 
 # opam configuration
 test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
