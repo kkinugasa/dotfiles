@@ -5,8 +5,7 @@ Ubuntu PC の初期設定
 ## install list
 
 - vscode
-<!-- - fira code -->
-- [ricty diminished](./fonts/README.md)
+- [HackGen](https://github.com/yuru7/HackGen)
 - google chrome
 - docker
 - hadolint, dockle, trivy
