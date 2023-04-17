@@ -25,6 +25,7 @@ Ubuntu PC の初期設定
 - [texlive](https://texwiki.texjp.org/?Linux)
 - [haskell](https://www.haskell.org/platform/linux.html#linux-ubuntu)
 - [lean](https://leanprover.github.io/lean4/doc/quickstart.html)
+- [sdkman](https://sdkman.io/)
 
 ## setting
 
@@ -46,8 +47,7 @@ Android studio インストール後，`flutter doctor --android-licenses`で ja
 
 <https://qiita.com/yas-nyan/items/80f2db8c4bdf4c8e87b8>  
 `gnome-screenshot --area`
-を windows+shift+s に割当  
-ubuntu 20.04 で `shift + PSc`が矩形選択になった、特に何もしなくていい
+を windows+shift+s に割当
 
 <https://www.living-in.tokyo/post/2019/1/ubuntu_alt_tab/>  
 alt+tab を switch-windows に変更  
