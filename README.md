@@ -23,7 +23,7 @@ Ubuntu PC の初期設定
 - [flutter](https://flutter.dev/docs/get-started/install/linux), android-studio
 - [nodejs](https://volta.sh/)
 - [texlive](https://texwiki.texjp.org/?Linux)
-- [haskell](https://www.haskell.org/platform/linux.html#linux-ubuntu)
+- [haskell](https://www.haskell.org/downloads/)
 - [lean](https://leanprover.github.io/lean4/doc/quickstart.html)
 - [sdkman](https://sdkman.io/)
 
