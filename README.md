@@ -17,7 +17,7 @@ Ubuntu PC の初期設定
 - skaffold
 - gcloud
 - git-completion, git-prompt
-- golang
+- [golang](https://go.dev/doc/install)
 - pyenv
 - poetry
 - [flutter](https://flutter.dev/docs/get-started/install/linux), android-studio
@@ -33,7 +33,7 @@ Ubuntu PC の初期設定
 
 ```sh
 go env -w GO111MODULE=on
-go get github.com/x-motemen/ghq
+go install github.com/x-motemen/ghq
 sudo apt install hub peco
 git config --global --add ghq.root $(go env GOPATH)/src
 ```
