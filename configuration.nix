@@ -2,12 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+    ]
+    # ++ (with inputs.nixos-hardware.nixosModules; [
+    #   common-cpu-amd
+    #   common-gpu-nvidia
+    #   common-pc-ssd
+    # ])
+    ++ [
+      inputs.xremap.nixosModules.default
     ];
 
   # Bootloader.
@@ -53,12 +61,12 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-emoji
       nerdfonts
-    ]; 
+    ];
     fontDir.enable = true;
     fontconfig = {
       defaultFonts = {
@@ -160,7 +168,102 @@
 
   nix = {
     settings = {
+      auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
     };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    # nixPath = ["nixos-config=/home/kkinugasa/dotfiles/configuration.nix"];
+  };
+  services.xremap = {
+    userName = "kkinugasa";
+    serviceMode = "system";
+    config = {
+      modmap = [
+        {
+          name = "My config";
+          remap = {
+            CapsLock = "Ctrl_L";
+            Muhenkan = "Alt_L";
+            Henkan = "Shift_R";
+            KatakanaHiragana = "Shift_R";
+          };
+        }
+      ];
+      # keymap = [
+      #   {
+      #     name = "Emacs-like";
+      #     remap = {
+      #       # Cursor
+      #       C-b = { with_mark = "left"; };
+      #       C-f = { with_mark = "right"; };
+      #       C-p = { with_mark = "up"; };
+      #       C-n = { with_mark = "down"; };
+      #       # # Forward/Backward word
+      #       M-b = { with_mark = "C-left"; };
+      #       M-f = { with_mark = "C-right"; };
+      #       # Beginning/End of line
+      #       # C-a = { with_mark = "home"; };
+      #       # C-e = { with_mark = "end"; };
+      #       # # Page up/down
+      #       # M-v = "pageup";
+      #       # C-v = "pagedown";
+      #       # Newline
+      #       C-m = "enter";
+      #       # # Copy
+      #       # C-w = "C-x";
+      #       # M-w = "C-c";
+      #       # C-y = "C-v";
+      #       # # Delete
+      #       # C-d = "delete";
+      #       # M-d = "C-delete";
+      #       # C-h = "Backspace";
+      #       # M-h = "C-Backspace";
+      #       # # Search
+      #       # C-s = "F3";
+      #       # C-r = "Shift-F3";
+      #       # Kill line
+      #       # C-k = "Shift-end, C-x";
+      #       # C-x YYY
+      #       # C-x = {
+      #       #   remap = {
+      #       #     # C-x h (select all)
+      #       #     h = "C-home, C-a";
+      #       #   };
+      #       # }
+      #     };
+      #   }
+      # ];
+    };
+  };
+
+  # https://nixos.wiki/wiki/Nvidia
+  # Make sure opengl is enabled
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  # Tell Xorg to use the nvidia driver (also valid for Wayland)
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+
+    # Modesetting is needed for most Wayland compositors
+    modesetting.enable = true;
+
+    # Use the open source version of the kernel module
+    # Only available on driver 515.43.04+
+    open = false;
+
+    # Enable the nvidia settings menu
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }
