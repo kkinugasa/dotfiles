@@ -27,7 +27,7 @@
     "/crypto_keyfile.bin" = null;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "archimedes"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -134,8 +134,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wev
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -167,6 +168,7 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
   nix = {
+    package = pkgs.nixFlakes;
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
@@ -196,39 +198,42 @@
       # keymap = [
       #   {
       #     name = "Emacs-like";
+      #     application = { only = "Google-chrome"; };
       #     remap = {
       #       # Cursor
       #       C-b = { with_mark = "left"; };
       #       C-f = { with_mark = "right"; };
       #       C-p = { with_mark = "up"; };
       #       C-n = { with_mark = "down"; };
-      #       # # Forward/Backward word
+      #       # Forward/Backward word
       #       M-b = { with_mark = "C-left"; };
       #       M-f = { with_mark = "C-right"; };
       #       # Beginning/End of line
-      #       # C-a = { with_mark = "home"; };
-      #       # C-e = { with_mark = "end"; };
+      #       C-a = { with_mark = "home"; };
+      #       C-e = { with_mark = "end"; };
       #       # # Page up/down
       #       # M-v = "pageup";
       #       # C-v = "pagedown";
       #       # Newline
       #       C-m = "enter";
-      #       # # Copy
-      #       # C-w = "C-x";
-      #       # M-w = "C-c";
-      #       # C-y = "C-v";
-      #       # # Delete
-      #       # C-d = "delete";
-      #       # M-d = "C-delete";
-      #       # C-h = "Backspace";
-      #       # M-h = "C-Backspace";
+      #       # Tab
+      #       C-i = "tab";
+      #       # Copy
+      #       # C-w = ["C-x" { set_mark = false; }];
+      #       M-w = ["C-c" { set_mark = false; }];
+      #       C-y = ["C-v" { set_mark = false; }];
+      #       # Delete
+      #       C-d = ["delete" { set_mark = false; }];
+      #       M-d = ["C-delete" { set_mark = false; }];
+      #       C-h = ["Backspace" { set_mark = false; }];
+      #       M-h = ["C-Backspace" { set_mark = false; }];
       #       # # Search
       #       # C-s = "F3";
       #       # C-r = "Shift-F3";
       #       # Kill line
-      #       # C-k = "Shift-end, C-x";
-      #       # C-x YYY
-      #       # C-x = {
+      #       # C-k = ["Shift-end" "C-x" { set_mark = false; }];
+      #       # # C-x YYY
+      #       # # C-x = {
       #       #   remap = {
       #       #     # C-x h (select all)
       #       #     h = "C-home, C-a";
