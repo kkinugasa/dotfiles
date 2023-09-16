@@ -12,18 +12,21 @@
     discord
     du-dust # du alternative
     duf # df alternative
-    exa # ls alternative
+    elan # lean version manager
+    eza # ls alternative
     fd # find alternative
     gh
     ghq
     go
     google-chrome
     httpie # curl alternative
-    lean
+    # lean
+    # Lake
     peco
     pinta # Microsoft Paint alternative
     poetry
     pyenv
+    python311
     ripgrep # grep alternative
     slack
     texlive.combined.scheme-full
@@ -96,8 +99,8 @@
       gcd = "peco-cd";
       ghub= "hub browse $(ghq list | peco | cut -d / -f 2,3)";
       grep = "rg";
-      ls = "exa";
-      tree = "exa --tree";
+      ls = "eza";
+      tree = "eza --tree";
     };
   };
 
