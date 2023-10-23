@@ -56,3 +56,11 @@ ubuntu 20.04 で `alt + tab`がデフォルトで switch-windows になったか
 disable emoji shortcut  
 command `ibus-setup` and launch `IBus Preferences`.  
 Select Emoji tab and delete shortcut `<Control><Shift>e`
+
+## Nix update
+
+```sh
+nix flake update
+sudo nixos-rebuild switch --upgrade --flake .#archimedes
+nix run home-manager -- switch --flake .
+```
