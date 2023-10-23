@@ -121,12 +121,13 @@
   users.users.kkinugasa = {
     isNormalUser = true;
     description = "kkinugasa";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       firefox
     #  thunderbird
     ];
   };
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
