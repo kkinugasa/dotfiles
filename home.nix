@@ -1,19 +1,23 @@
 { pkgs, ... }:
 # let
-#     mypkgs = import (builtins.fetchTarball {
-#       url = "https://github.com/NixOS/nixpkgs/archive/976fa3369d722e76f37c77493d99829540d43845.tar.gz";
-#       sha256 = "sha256:1r6c7ggdk0546wzf2hvd5a7jwzsf3gn1flr8vjd685rm74syxv6d";
-#     }) {
+#   mypkgs = import
+#     (builtins.fetchGit {
+#       # Descriptive name to make the store path easier to identify
+#       name = "my-old-revision";
+#       url = "https://github.com/NixOS/nixpkgs/";
+#       ref = "refs/heads/nixpkgs-unstable";
+#       rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
+#     })
+#     {
 #       system = "x86_64-linux";
 #       config.allowUnfree = true;
 #     };
-#     vscode = mypkgs.vscode;
 # in
 {
   home = rec {
     username = "kkinugasa";
     homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
   home.packages = with pkgs; [
     bat # cat alternative
@@ -41,7 +45,7 @@
     unzip
     vscode
   ];
-  # ++ [vscode];
+  # ++ [ mypkgs.google-chrome ];
 
   programs.bash = {
     enable = true;
