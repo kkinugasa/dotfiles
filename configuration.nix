@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ]
     # ++ (with inputs.nixos-hardware.nixosModules; [
@@ -57,7 +58,7 @@
 
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = [pkgs.fcitx5-mozc];
+    fcitx5.addons = [ pkgs.fcitx5-mozc ];
   };
 
   fonts = {
@@ -70,10 +71,10 @@
     fontDir.enable = true;
     fontconfig = {
       defaultFonts = {
-        serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
-        sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
-        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-        emoji = ["Noto Color Emoji"];
+        serif = [ "Noto Serif CJK JP" "Noto Color Emoji" ];
+        sansSerif = [ "Noto Sans CJK JP" "Noto Color Emoji" ];
+        monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+        emoji = [ "Noto Color Emoji" ];
       };
     };
   };
@@ -121,10 +122,10 @@
   users.users.kkinugasa = {
     isNormalUser = true;
     description = "kkinugasa";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
   virtualisation.docker.enable = true;
@@ -135,6 +136,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # gnomeExtensions.kimpanel
     nvtop
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wev
@@ -173,7 +175,8 @@
     package = pkgs.nixFlakes;
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
+      # max-jobs = auto;
     };
     gc = {
       automatic = true;
@@ -256,7 +259,7 @@
   };
 
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
 

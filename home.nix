@@ -11,7 +11,7 @@
 # in
 {
   home = rec {
-    username="kkinugasa";
+    username = "kkinugasa";
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
   };
@@ -35,6 +35,7 @@
     pyenv
     python311
     ripgrep # grep alternative
+    rnix-lsp
     slack
     texlive.combined.scheme-full
     unzip
@@ -105,7 +106,7 @@
     shellAliases = {
       cat = "bat";
       gcd = "peco-cd";
-      ghub= "hub browse $(ghq list | peco | cut -d / -f 2,3)";
+      ghub = "hub browse $(ghq list | peco | cut -d / -f 2,3)";
       grep = "rg";
       ls = "eza";
       tree = "eza --tree";
