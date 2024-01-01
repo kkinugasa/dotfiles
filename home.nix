@@ -32,6 +32,8 @@
     ghq
     go
     google-chrome
+    haskellPackages.ghc
+    haskellPackages.haskell-language-server
     httpie # curl alternative
     peco
     pinta # Microsoft Paint alternative
