@@ -64,3 +64,9 @@ nix flake update
 sudo nixos-rebuild switch --upgrade --flake .#archimedes
 nix run home-manager -- switch --flake .
 ```
+
+## Chromeの挙動が変なとき
+
+グラフィックス系のcacheを消す．
+
+<https://discussion.fedoraproject.org/t/chromium-based-browsers-display-garbled-web-pages-after-mesa-is-updated/83438>
