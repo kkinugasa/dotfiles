@@ -70,3 +70,7 @@ nix run home-manager -- switch --flake .
 グラフィックス系のcacheを消す．
 
 <https://discussion.fedoraproject.org/t/chromium-based-browsers-display-garbled-web-pages-after-mesa-is-updated/83438>
+
+```sh
+rm -rf ~/.config/*/{Default/GPUCache,GrShaderCache,ShaderCache}
+```
