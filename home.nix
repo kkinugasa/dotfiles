@@ -17,7 +17,7 @@
   home = rec {
     username = "kkinugasa";
     homeDirectory = "/home/${username}";
-    stateVersion = "24.05";
+    stateVersion = "23.11";
   };
   home.packages = with pkgs; [
     bat # cat alternative
@@ -32,6 +32,7 @@
     ghq
     go
     google-chrome
+    haskellPackages.cabal-install
     haskellPackages.ghc
     haskellPackages.haskell-language-server
     httpie # curl alternative
