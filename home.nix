@@ -28,6 +28,7 @@
     elan # lean version manager
     eza # ls alternative
     fd # find alternative
+    gcc
     gh
     ghq
     go
