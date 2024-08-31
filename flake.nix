@@ -1,10 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     xremap.url = "github:xremap/nix-flake";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -23,7 +23,10 @@
       kkinugasa = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
-          config.allowUnfree = true;
+          config = {
+            allowUnfree = true;
+            # permittedInsecurePackages = [ "nix-2.15.3" ];
+          };
         };
         extraSpecialArgs = {
           inherit inputs;

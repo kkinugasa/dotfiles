@@ -17,13 +17,13 @@
   home = rec {
     username = "kkinugasa";
     homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
   home.packages = with pkgs; [
     bat # cat alternative
-    bottom # top alternative
+    bottom # top alternative btm
     discord
-    du-dust # du alternative
+    du-dust # du alternative dust
     duf # df alternative
     elan # lean version manager
     eza # ls alternative
@@ -31,22 +31,26 @@
     gcc
     gh
     ghq
+    gnumake
     go
     google-chrome
     haskellPackages.cabal-install
     haskellPackages.ghc
     haskellPackages.haskell-language-server
     httpie # curl alternative
+    nil # nix lsp
     peco
     pinta # Microsoft Paint alternative
     poetry
     pyenv
     python311
     ripgrep # grep alternative
-    rnix-lsp
+    rustup
+    # rye
     slack
     texlive.combined.scheme-full
     unzip
+    # uv
     vscode
   ];
   # ++ [ mypkgs.google-chrome ];
