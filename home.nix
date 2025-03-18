@@ -51,6 +51,7 @@
     slack
     steam
     texlive.combined.scheme-full
+    traceroute
     unzip
     # uv
     vscode
