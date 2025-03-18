@@ -17,11 +17,12 @@
   home = rec {
     username = "kkinugasa";
     homeDirectory = "/home/${username}";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
   home.packages = with pkgs; [
     bat # cat alternative
     bottom # top alternative btm
+    dig
     discord
     du-dust # du alternative dust
     duf # df alternative
@@ -48,6 +49,7 @@
     rustup
     # rye
     slack
+    steam
     texlive.combined.scheme-full
     unzip
     # uv
