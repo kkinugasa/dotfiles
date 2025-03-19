@@ -65,6 +65,12 @@ sudo nixos-rebuild switch --upgrade --flake .#archimedes
 nix run home-manager -- switch --flake .
 ```
 
+## キーバインドの設定起動
+
+```sh
+sudo systemctl restart xremap.service
+```
+
 ## Chromeの挙動が変なとき
 
 グラフィックス系のcacheを消す．
