@@ -14,9 +14,7 @@
       archimedes = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./configuration.nix ];
-        specialArgs = {
-          inherit inputs;
-        };
+        specialArgs = { inherit inputs; };
       };
     };
     homeConfigurations = {
@@ -28,9 +26,7 @@
             # permittedInsecurePackages = [ "nix-2.15.3" ];
           };
         };
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+        extraSpecialArgs = { inherit inputs; };
         modules = [ ./home.nix ];
       };
     };

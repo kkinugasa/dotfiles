@@ -40,6 +40,7 @@
     haskellPackages.haskell-language-server
     httpie # curl alternative
     nil # nix lsp
+    nixfmt
     peco
     pinta # Microsoft Paint alternative
     poetry
@@ -53,7 +54,7 @@
     texlive.combined.scheme-full
     traceroute
     unzip
-    # uv
+    uv
     vscode
   ];
   # ++ [ mypkgs.google-chrome ];
