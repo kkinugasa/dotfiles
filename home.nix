@@ -1,4 +1,4 @@
-{ pkgs, rust-overlay, ... }:
+{ pkgs, ... }:
 # let
 #   mypkgs = import
 #     (builtins.fetchGit {
@@ -62,8 +62,15 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    historyControl = [ "ignoredups" "ignorespace" "erasedups" ];
-    historyIgnore = [ "ls" "cd" ];
+    historyControl = [
+      "ignoredups"
+      "ignorespace"
+      "erasedups"
+    ];
+    historyIgnore = [
+      "ls"
+      "cd"
+    ];
     # initExtra = builtins.readFile ./bashrc;
     initExtra = ''
       # https://qiita.com/varmil/items/9b0aeafa85975474e9b6
