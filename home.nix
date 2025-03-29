@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, rust-overlay, ... }:
 # let
 #   mypkgs = import
 #     (builtins.fetchGit {
@@ -40,7 +40,7 @@
     haskellPackages.haskell-language-server
     httpie # curl alternative
     nil # nix lsp
-    nixfmt
+    nixfmt-rfc-style
     peco
     pinta # Microsoft Paint alternative
     poetry
