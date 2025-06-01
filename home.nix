@@ -41,6 +41,7 @@
     httpie # curl alternative
     nil # nix lsp
     nixfmt-rfc-style
+    nmap
     peco
     pinta # Microsoft Paint alternative
     poetry
@@ -135,6 +136,5 @@
       tree = "eza --tree";
     };
   };
-
   programs.home-manager.enable = true;
 }
