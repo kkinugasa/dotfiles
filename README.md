@@ -61,8 +61,8 @@ Select Emoji tab and delete shortcut `<Control><Shift>e`
 
 ```sh
 nix flake update
-sudo nixos-rebuild switch --upgrade --flake .#archimedes
-nix run home-manager -- switch --flake .
+sudo nixos-rebuild switch --flake .#archimedes
+# nix run home-manager -- switch --flake .
 ```
 
 ## キーバインドの設定起動

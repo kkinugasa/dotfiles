@@ -10,26 +10,52 @@
     };
   };
 
-  outputs = inputs: {
-    nixosConfigurations = {
-      archimedes = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
-        specialArgs = { inherit inputs; };
-      };
-    };
-    homeConfigurations = {
-      kkinugasa = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          config = {
-            allowUnfree = true;
-            # permittedInsecurePackages = [ "nix-2.15.3" ];
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      ...
+    }:
+    {
+      nixosConfigurations = {
+        archimedes =
+          let
+            system = "x86_64-linux";
+            pkgsUnstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+              { nixpkgs.config.allowUnfree = true; }
+              ./hosts/archimedes/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = { inherit pkgsUnstable; };
+                home-manager.users.kkinugasa = import ./home.nix;
+              }
+            ];
+            specialArgs = { inherit inputs; };
           };
-        };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home.nix ];
       };
+      # homeConfigurations = {
+      #   kkinugasa = inputs.home-manager.lib.homeManagerConfiguration {
+      #     pkgs = import inputs.nixpkgs {
+      #       system = "x86_64-linux";
+      #       config = {
+      #         allowUnfree = true;
+      #         # permittedInsecurePackages = [ "nix-2.15.3" ];
+      #       };
+      #     };
+      #     extraSpecialArgs = { inherit inputs; };
+      #     modules = [ ./home.nix ];
+      #   };
+      # };
     };
-  };
 }

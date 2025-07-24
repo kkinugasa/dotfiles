@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 # let
 #   mypkgs = import
 #     (builtins.fetchGit {
@@ -19,45 +19,47 @@
     homeDirectory = "/home/${username}";
     stateVersion = "25.05";
   };
-  home.packages = with pkgs; [
-    bat # cat alternative
-    bottom # top alternative btm
-    dig
-    discord
-    du-dust # du alternative dust
-    duf # df alternative
-    elan # lean version manager
-    eza # ls alternative
-    fd # find alternative
-    gcc
-    gh
-    ghq
-    gnumake
-    go
-    google-chrome
-    haskellPackages.cabal-install
-    haskellPackages.ghc
-    haskellPackages.haskell-language-server
-    httpie # curl alternative
-    nil # nix lsp
-    nixfmt-rfc-style
-    nmap
-    peco
-    pinta # Microsoft Paint alternative
-    poetry
-    pyenv
-    python311
-    ripgrep # grep alternative
-    rustup
-    # rye
-    slack
-    # steam
-    texlive.combined.scheme-full
-    traceroute
-    unzip
-    uv
-    vscode
-  ];
+  home.packages =
+    with pkgs;
+    [
+      bat # cat alternative
+      bottom # top alternative btm
+      dig
+      discord
+      du-dust # du alternative dust
+      duf # df alternative
+      elan # lean version manager
+      eza # ls alternative
+      fd # find alternative
+      gcc
+      gh
+      ghq
+      gnumake
+      go
+      google-chrome
+      haskellPackages.cabal-install
+      haskellPackages.ghc
+      haskellPackages.haskell-language-server
+      httpie # curl alternative
+      nil # nix lsp
+      nixfmt-rfc-style
+      nmap
+      peco
+      pinta # Microsoft Paint alternative
+      poetry
+      pyenv
+      python311
+      ripgrep # grep alternative
+      rustup
+      # rye
+      slack
+      # steam
+      texlive.combined.scheme-full
+      traceroute
+      unzip
+      uv
+    ]
+    ++ [ pkgsUnstable.vscode ];
   # ++ [ mypkgs.google-chrome ];
 
   programs.bash = {
