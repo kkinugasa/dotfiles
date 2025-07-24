@@ -17,7 +17,7 @@
   home = rec {
     username = "kkinugasa";
     homeDirectory = "/home/${username}";
-    stateVersion = "24.11";
+    stateVersion = "25.05";
   };
   home.packages = with pkgs; [
     bat # cat alternative
@@ -51,7 +51,7 @@
     rustup
     # rye
     slack
-    steam
+    # steam
     texlive.combined.scheme-full
     traceroute
     unzip

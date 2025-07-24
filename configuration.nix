@@ -72,7 +72,8 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      nerdfonts
+      nerd-fonts._0xproto
+      nerd-fonts.droid-sans-mono
     ];
     fontDir.enable = true;
     fontconfig = {
@@ -114,7 +115,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -270,6 +271,13 @@
       # ];
     };
   };
+
+  hardware.graphics.extraPackages = with pkgs; [
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-extension-layer
+  ];
+  programs.steam.enable = true;
 
   # https://nixos.wiki/wiki/Nvidia
   # Make sure opengl is enabled
