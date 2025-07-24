@@ -10,19 +10,18 @@
 }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ]
-    # ++ (with inputs.nixos-hardware.nixosModules; [
-    #   common-cpu-amd
-    #   common-gpu-nvidia
-    #   common-pc-ssd
-    # ])
-    ++ [
-      inputs.xremap.nixosModules.default
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ]
+  # ++ (with inputs.nixos-hardware.nixosModules; [
+  #   common-cpu-amd
+  #   common-gpu-nvidia
+  #   common-pc-ssd
+  # ])
+  ++ [
+    inputs.xremap.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -74,6 +73,8 @@
       noto-fonts-emoji
       nerd-fonts._0xproto
       nerd-fonts.droid-sans-mono
+      hackgen-font
+      hackgen-nf-font
     ];
     fontDir.enable = true;
     fontconfig = {
