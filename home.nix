@@ -64,6 +64,7 @@
       traceroute
       unzip
       uv
+      wireshark
     ]
     ++ [ pkgsUnstable.vscode ];
   # ++ [ mypkgs.google-chrome ];
