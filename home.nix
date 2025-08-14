@@ -47,6 +47,7 @@
       haskellPackages.ghc
       haskellPackages.haskell-language-server
       httpie # curl alternative
+      hub
       nil # nix lsp
       nixfmt-rfc-style
       nmap
@@ -109,33 +110,24 @@
               cd $(ghq root)/"$GIT_SRC"
           fi
       }
-
-      #https://qiita.com/omega999/items/8717c1b9d8bc10596d67#peco-history%E3%81%AE%E5%AE%9F%E8%A3%85
-      peco-history() {
-          local NUM=$(history | wc -l)
-          local FIRST=$((-1*(NUM-1)))
-
-          if [ $FIRST -eq 0 ] ; then
-              history -d $((HISTCMD-1))
-              echo "No history" >&2
-              return
-          fi
-
-          local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
-
-          if [ -n "$CMD" ] ; then
-              history -s $CMD
-
-              if type osascript > /dev/null 2>&1 ; then
-                  (osascript -e 'tell application "System Events" to keystroke (ASCII character 30)' &)
-              fi
-          else
-              history -d $((HISTCMD-1))
-          fi
-      }
-      bind -x '"\C-r":peco-history'
     '';
-
+    bashrcExtra = ''
+      _peco_history() {
+        local selected
+        selected="$(
+          HISTTIMEFORMAT= history \
+            | sed 's/ *[0-9]\+ *//' \
+            | tac \
+            | awk '!seen[$0]++' \
+            | peco --query "''${READLINE_LINE:-}"
+        )"
+        if [[ -n "$selected" ]]; then
+          READLINE_LINE="$selected"
+          READLINE_POINT=''${#READLINE_LINE}
+        fi
+      }
+      bind -x '"\C-r": _peco_history'
+    '';
     shellAliases = {
       cat = "bat";
       gcd = "peco-cd";
