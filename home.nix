@@ -83,15 +83,14 @@
       "cd"
     ];
     # initExtra = builtins.readFile ./bashrc;
-    initExtra = ''
-      # https://qiita.com/varmil/items/9b0aeafa85975474e9b6
+    bashrcExtra = ''
       source $HOME/.git-completion.bash
       source $HOME/.git-prompt.sh
 
       # プロンプトに各種情報を表示
       GIT_PS1_SHOWDIRTYSTATE=1
-      GIT_PS1_SHOWUPSTREAM=1
-      GIT_PS1_SHOWUNTRACKEDFILES=
+      GIT_PS1_SHOWUPSTREAM="auto"
+      GIT_PS1_SHOWUNTRACKEDFILES=1
       GIT_PS1_SHOWSTASHSTATE=1
       ############### ターミナルのコマンド受付状態の表示変更
       # \u ユーザ名
@@ -110,8 +109,6 @@
               cd $(ghq root)/"$GIT_SRC"
           fi
       }
-    '';
-    bashrcExtra = ''
       _peco_history() {
         local selected
         selected="$(
