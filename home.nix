@@ -54,9 +54,10 @@
       peco
       pinta # Microsoft Paint alternative
       poetry
-      pyenv
+      pyright
       python311
       ripgrep # grep alternative
+      ruff
       rustup
       # rye
       slack
@@ -74,16 +75,23 @@
     enable = true;
     enableCompletion = true;
     historyControl = [
-      "ignoredups"
-      "ignorespace"
-      "erasedups"
+      "ignoredups" # 重複コマンドを記録しない
+      "ignorespace" # 先頭スペースのコマンドを記録しない
+      "erasedups" # 保存時に重複を削除
     ];
+    historyFile = "$HOME/.bash_history";
+    historyFileSize = 1000000;
+    historySize = 1000000;
     historyIgnore = [
       "ls"
       "cd"
     ];
     # initExtra = builtins.readFile ./bashrc;
     bashrcExtra = ''
+      # 履歴を他のシェルとリアルタイム共有
+      shopt -s histappend
+      export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
       source $HOME/.git-completion.bash
       source $HOME/.git-prompt.sh
 
