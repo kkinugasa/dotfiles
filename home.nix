@@ -34,7 +34,6 @@
       discord
       du-dust # du alternative dust
       duf # df alternative
-      elan # lean version manager
       eza # ls alternative
       fd # find alternative
       gcc
@@ -48,6 +47,7 @@
       haskellPackages.haskell-language-server
       httpie # curl alternative
       hub
+      lean4
       nil # nix lsp
       nixfmt-rfc-style
       nmap
@@ -59,7 +59,6 @@
       ripgrep # grep alternative
       ruff
       rustup
-      # rye
       slack
       # steam
       texlive.combined.scheme-full
@@ -141,6 +140,10 @@
       ls = "eza";
       tree = "eza --tree";
     };
+  };
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
   programs.home-manager.enable = true;
 }
