@@ -72,6 +72,7 @@
 
   programs.bash = {
     enable = true;
+    package = pkgs.bashInteractive;
     enableCompletion = true;
     historyControl = [
       "ignoredups" # 重複コマンドを記録しない
