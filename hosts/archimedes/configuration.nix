@@ -63,7 +63,11 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.addons = [ pkgs.fcitx5-mozc ];
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+      fcitx5-configtool
+    ];
   };
 
   fonts = {
@@ -153,7 +157,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # gnomeExtensions.kimpanel
+    gnomeExtensions.kimpanel
     nvtopPackages.full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wev
