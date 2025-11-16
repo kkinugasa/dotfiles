@@ -88,6 +88,9 @@
     ];
     # initExtra = builtins.readFile ./bashrc;
     bashrcExtra = ''
+      # Guard: run only in interactive bash
+      [ -n "$BASH_VERSION" ] || return
+      case "$-" in *i*) ;; *) return ;; esac
       # 履歴を他のシェルとリアルタイム共有
       shopt -s histappend
       export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

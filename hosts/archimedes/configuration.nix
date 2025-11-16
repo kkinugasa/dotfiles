@@ -210,6 +210,7 @@
     # nixPath = ["nixos-config=/home/kkinugasa/dotfiles/configuration.nix"];
   };
   services.xremap = {
+    enable = true;
     userName = "kkinugasa";
     serviceMode = "system";
     config = {
