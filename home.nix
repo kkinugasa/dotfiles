@@ -28,12 +28,13 @@
   home.packages =
     with pkgs;
     [
+      android-tools
       bat # cat alternative
       bottom # top alternative btm
       dig
       discord
-      du-dust # du alternative dust
       duf # df alternative
+      dust # du alternative dust
       eza # ls alternative
       fd # find alternative
       gcc
@@ -59,6 +60,7 @@
       ripgrep # grep alternative
       ruff
       rustup
+      scrcpy
       slack
       # steam
       texlive.combined.scheme-full

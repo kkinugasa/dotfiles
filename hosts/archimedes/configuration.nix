@@ -66,7 +66,7 @@
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
-      fcitx5-configtool
+      # fcitx5-configtool
     ];
   };
 
@@ -74,7 +74,7 @@
     packages = with pkgs; [
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       nerd-fonts._0xproto
       nerd-fonts.droid-sans-mono
       hackgen-font
