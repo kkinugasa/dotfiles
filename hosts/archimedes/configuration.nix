@@ -158,7 +158,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gnomeExtensions.kimpanel
-    nvtopPackages.full
+    # nvtopPackages.full
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wev
     wget

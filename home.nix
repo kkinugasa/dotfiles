@@ -64,6 +64,7 @@
       slack
       # steam
       texlive.combined.scheme-full
+      trezor-suite
       traceroute
       unzip
       uv
