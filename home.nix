@@ -50,7 +50,7 @@
       hub
       lean4
       nil # nix lsp
-      nixfmt-rfc-style
+      nixfmt
       nmap
       peco
       pinta # Microsoft Paint alternative
