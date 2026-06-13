@@ -92,7 +92,7 @@
           "Noto Color Emoji"
         ];
         monospace = [
-          "JetBrainsMono Nerd Font"
+          "HackGenConsole NF"
           "Noto Color Emoji"
         ];
         emoji = [ "Noto Color Emoji" ];
@@ -106,6 +106,8 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+
+  services.displayManager.defaultSession = "gnome";
 
   # Configure keymap in X11
   services.xserver.xkb = {
