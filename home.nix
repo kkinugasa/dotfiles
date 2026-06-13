@@ -39,7 +39,6 @@
       fd # find alternative
       gcc
       gh
-      ghidra
       ghq
       gnumake
       go

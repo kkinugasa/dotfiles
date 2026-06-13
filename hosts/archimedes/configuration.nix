@@ -107,8 +107,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  services.displayManager.defaultSession = "gnome";
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "jp";
@@ -148,6 +146,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "libvirtd"
     ];
     packages = with pkgs; [
       firefox
@@ -155,6 +154,8 @@
     ];
   };
   virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
