@@ -13,6 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./remote-access.nix
   ]
   # ++ (with inputs.nixos-hardware.nixosModules; [
   #   common-cpu-amd
