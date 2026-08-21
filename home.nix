@@ -52,6 +52,7 @@
       nil # nix lsp
       nixfmt
       nmap
+      pciutils
       peco
       pinta # Microsoft Paint alternative
       poetry
@@ -64,6 +65,7 @@
       slack
       # steam
       texlive.combined.scheme-full
+      tmux
       trezor-suite
       traceroute
       unzip
