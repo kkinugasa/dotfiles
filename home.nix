@@ -31,6 +31,7 @@
       android-tools
       bat # cat alternative
       bottom # top alternative btm
+      codex
       dig
       discord
       duf # df alternative
