@@ -1,18 +1,4 @@
 { pkgs, pkgsUnstable, ... }:
-# let
-#   mypkgs = import
-#     (builtins.fetchGit {
-#       # Descriptive name to make the store path easier to identify
-#       name = "my-old-revision";
-#       url = "https://github.com/NixOS/nixpkgs/";
-#       ref = "refs/heads/nixpkgs-unstable";
-#       rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
-#     })
-#     {
-#       system = "x86_64-linux";
-#       config.allowUnfree = true;
-#     };
-# in
 {
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -31,7 +17,6 @@
       android-tools
       bat # cat alternative
       bottom # top alternative btm
-      codex
       dig
       discord
       duf # df alternative
@@ -43,7 +28,6 @@
       ghq
       gnumake
       go
-      google-chrome
       haskellPackages.cabal-install
       haskellPackages.ghc
       haskellPackages.haskell-language-server
@@ -73,8 +57,11 @@
       uv
       wireshark
     ]
-    ++ [ pkgsUnstable.vscode ];
-  # ++ [ mypkgs.google-chrome ];
+    ++ (with pkgsUnstable; [
+      codex
+      google-chrome
+      vscode
+    ]);
 
   programs.bash = {
     enable = true;
